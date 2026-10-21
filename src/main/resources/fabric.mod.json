@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "secretroomsmod",
+	"version": "${version}",
+	"name": "Secret Rooms",
+	"description": "Hide your base behind blocks that look like any other block. Adds ghost blocks, secret doors, levers, buttons, chests and more, and the camouflage paste and switch probe to make them.",
+	"authors": [
+		"Wyn Price"
+	],
+	"contact": {
+		"homepage": "https://github.com/Wyn-Price/SecretRooms",
+		"sources": "https://github.com/Wyn-Price/SecretRooms"
+	},
+	"license": "CC0-1.0",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-datagen": [
+			"com.wynprice.secretrooms.datagen.SecretDataGenerator"
+		],
+		"main": [
+			"com.wynprice.secretrooms.SecretRoomsFabric"
+		],
+		"client": [
+			"com.wynprice.secretrooms.client.SecretRoomsClient"
+		]
+	},
+	"mixins": [
+		"secretroomsmod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

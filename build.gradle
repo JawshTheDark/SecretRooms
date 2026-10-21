@@ -1,0 +1,90 @@
+plugins {
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
+	id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
+
+repositories {
+}
+
+loom {
+
+	runs {
+		client {
+			client()
+			ideConfigGenerated(true)
+		}
+		server {
+			server()
+			ideConfigGenerated(true)
+		}
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+processResources {
+	inputs.property "version", project.version
+	filesMatching("fabric.mod.json") {
+		expand "version": project.version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 25
+	it.options.encoding = 'UTF-8'
+}
+
+java {
+	withSourcesJar()
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+	inputs.property "archivesName", project.base.archivesName
+	from("LICENSE") {
+		rename { "${it}_${project.base.archivesName.get()}" }
+	}
+}
+
+fabricApi {
+	configureDataGeneration {
+		client = false
+		outputDirectory = file("src/main/generated")
+	}
+}
+
+
+fabricApi {
+	configureTests {
+		createSourceSet = true
+		modId = "secretroomsmod-test"
+		enableGameTests = false
+		enableClientGameTests = true
+	}
+}
+
+processResources {
+	exclude ".cache"
+}
+
+// Lets the client game test run alongside other mods, to check the secret blocks render with them:
+//   ./gradlew runClientGameTest -PextraTestMods=C:/path/to/sodium.jar,C:/path/to/other.jar
+if (project.hasProperty("extraTestMods")) {
+	dependencies {
+		project.property("extraTestMods").toString().split(",").each { path ->
+			gametestRuntimeOnly files(path.trim())
+		}
+	}
+}

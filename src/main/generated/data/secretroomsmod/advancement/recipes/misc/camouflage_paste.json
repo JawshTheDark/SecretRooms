@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_earth_item": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#secretroomsmod:earth_item"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "secretroomsmod:camouflage_paste"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_earth_item"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "secretroomsmod:camouflage_paste"
+    ]
+  }
+}

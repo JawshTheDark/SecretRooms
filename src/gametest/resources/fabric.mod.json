@@ -1,0 +1,15 @@
+{
+	"schemaVersion": 1,
+	"id": "secretroomsmod-test",
+	"version": "1.0.0",
+	"name": "Secret Rooms tests",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-client-gametest": [
+			"com.wynprice.secretrooms.test.SecretRoomsClientGameTest"
+		]
+	},
+	"depends": {
+		"secretroomsmod": "*"
+	}
+}

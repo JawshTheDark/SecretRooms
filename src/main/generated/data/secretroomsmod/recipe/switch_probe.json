@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "switch_probe",
+  "ingredients": [
+    "secretroomsmod:camouflage_paste",
+    "minecraft:redstone_torch"
+  ],
+  "result": {
+    "id": "secretroomsmod:switch_probe"
+  }
+}

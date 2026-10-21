@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "one_way_glass",
+  "key": {
+    "0": "#secretroomsmod:clear_glass",
+    "X": "secretroomsmod:camouflage_paste"
+  },
+  "pattern": [
+    "XXX",
+    "000",
+    "000"
+  ],
+  "result": {
+    "count": 9,
+    "id": "secretroomsmod:one_way_glass"
+  }
+}

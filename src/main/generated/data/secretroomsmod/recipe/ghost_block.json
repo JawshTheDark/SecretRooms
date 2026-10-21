@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "ghost_block",
+  "key": {
+    "0": "#secretroomsmod:secret_recipe_items",
+    "X": "secretroomsmod:camouflage_paste"
+  },
+  "pattern": [
+    "X0X",
+    "0 0",
+    "X0X"
+  ],
+  "result": {
+    "count": 4,
+    "id": "secretroomsmod:ghost_block"
+  }
+}

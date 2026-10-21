@@ -1,0 +1,10 @@
+{
+  "layers": {
+    "humanoid": [
+      { "texture": "secretroomsmod:true_vision_goggles" }
+    ],
+    "humanoid_baby": [
+      { "texture": "secretroomsmod:true_vision_goggles" }
+    ]
+  }
+}
